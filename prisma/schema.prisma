@@ -11,38 +11,38 @@ datasource db {
 }
 
 model Category {
-  id String @id @default(uuid())
-  name String
-  slug String
+  id       String    @id @default(uuid())
+  name     String
+  slug     String
   imageUrl String
   products Product[]
 }
 
 model Product {
-  id String @id @default(uuid())
-  name String
-  slug String
-  description String
-  basePrice Decimal @db.Decimal(8,2)
-  imageUrl String
-  categoryId String
-  category Category @relation(fields: [categoryId], references: [id])
-  discountPercent Int @default(0)
+  id              String   @id @default(uuid())
+  name            String
+  slug            String
+  description     String
+  basePrice       Decimal  @db.Decimal(8, 2)
+  imageUrls       String[]
+  categoryId      String
+  category        Category @relation(fields: [categoryId], references: [id])
+  discountPercent Int      @default(0)
 }
 
 model Account {
-  id                 String  @id @default(cuid())
-  userId             String
-  type               String
-  provider           String
-  providerAccountId  String
-  refresh_token      String?  @db.Text
-  access_token       String?  @db.Text
-  expires_at         Int?
-  token_type         String?
-  scope              String?
-  id_token           String?  @db.Text
-  session_state      String?
+  id                String  @id @default(cuid())
+  userId            String
+  type              String
+  provider          String
+  providerAccountId String
+  refresh_token     String? @db.Text
+  access_token      String? @db.Text
+  expires_at        Int?
+  token_type        String?
+  scope             String?
+  id_token          String? @db.Text
+  session_state     String?
 
   user User @relation(fields: [userId], references: [id], onDelete: Cascade)
 
