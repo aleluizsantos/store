@@ -20,10 +20,12 @@ const ProductItem = ({ product }: ProductItemProps) => {
           style={{ objectFit: "contain" }}
         />
 
-        <Badge className="absolute left-3 top-3 px-2 py-[2px]">
-          <ArrowDown size={13} />
-          {product.discountPercent}%
-        </Badge>
+        {product.discountPercent > 0 && (
+          <Badge className="absolute left-3 top-3 px-2 py-[2px]">
+            <ArrowDown size={13} />
+            {product.discountPercent}%
+          </Badge>
+        )}
       </div>
 
       <div className="flex flex-col gap-1">
