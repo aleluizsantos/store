@@ -21,6 +21,7 @@ import {
 import { signIn, signOut, useSession } from "next-auth/react";
 import { Avatar, AvatarFallback, AvatarImage } from "./avatar";
 import Link from "next/link";
+import { getInitials } from "@/lib/utils";
 
 const Header = () => {
   const { data, status } = useSession();
@@ -51,7 +52,7 @@ const Header = () => {
             <div className="mb-6 mt-6 flex items-center gap-2">
               <Avatar>
                 {data?.user?.image && <AvatarImage src={data.user?.image} />}
-                {/* <AvatarFallback>AL</AvatarFallback> */}
+                <AvatarFallback>{getInitials(data.user?.name)}</AvatarFallback>
               </Avatar>
               <div className="flex flex-col">
                 <span>{data.user?.name}</span>
