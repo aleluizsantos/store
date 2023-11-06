@@ -9,17 +9,17 @@ import {
   ListOrderedIcon,
   HomeIcon,
 } from "lucide-react";
-import { Button } from "./button";
-import { Card } from "./card";
+import { Button } from "./ui/button";
+import { Card } from "./ui/card";
 import {
   Sheet,
   SheetClose,
   SheetContent,
   SheetHeader,
   SheetTrigger,
-} from "./sheet";
+} from "./ui/sheet";
 import { signIn, signOut, useSession } from "next-auth/react";
-import { Avatar, AvatarFallback, AvatarImage } from "./avatar";
+import { Avatar, AvatarFallback, AvatarImage } from "./ui/avatar";
 import Link from "next/link";
 import { getInitials } from "@/lib/utils";
 
