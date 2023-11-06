@@ -1,8 +1,6 @@
-import Image from "next/image";
 import Categories from "./components/categories";
 import { prismaClient } from "@/lib/prisma";
 import ProductList from "../../components/product-list";
-import SectionTitle from "./components/section-title";
 import PromoBanner from "./components/promo-banner";
 
 export default async function Home() {
@@ -31,27 +29,16 @@ export default async function Home() {
   return (
     <div className="flex flex-col gap-8 p-5 py-8">
       <PromoBanner src="/banner_01.png" alt="até 55% desconto esse mês" />
-      <div>
-        <Categories />
-      </div>
-
-      <div>
-        <SectionTitle>Ofertas</SectionTitle>
-        <ProductList products={deals} />
-      </div>
-
+      {/* Categorias dos produtos */}
+      <Categories />
+      {/* Exibir as ofertas */}
+      <ProductList title="Ofertas" products={deals} />
       <PromoBanner src="/banner_02.png" alt="até 55% desconto em mouses" />
-
-      <div>
-        <SectionTitle>Teclados</SectionTitle>
-        <ProductList products={keyboards} />
-      </div>
-
+      {/* Exibir os produtos teclados */}
+      <ProductList title="Teclados" products={keyboards} />
       <PromoBanner src="/banner_03.png" alt="até 20% de Desconto em fones" />
-      <div>
-        <SectionTitle>Mouses</SectionTitle>
-        <ProductList products={mouses} />
-      </div>
+      {/* Exibir os produtos mouses*/}
+      <ProductList title="Mouses" products={mouses} />
     </div>
   );
 }

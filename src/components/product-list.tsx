@@ -8,7 +8,7 @@ interface productListProps {
 }
 const ProductList = ({ products, title }: productListProps) => {
   return (
-    <>
+    <div>
       {title && <p className="mb-2 pl-5 font-bold uppercase">{title}</p>}
       <div className="flex w-full gap-7 overflow-x-auto px-5 [&::-webkit-scrollbar]:hidden">
         {products.map((product) => (
@@ -18,7 +18,7 @@ const ProductList = ({ products, title }: productListProps) => {
           />
         ))}
       </div>
-    </>
+    </div>
   );
 };
 
