@@ -26,7 +26,25 @@ const CartProvider = ({ children }: { children: ReactNode }) => {
   const [products, setProducts] = useState<CartProduct[]>([]);
 
   const addProductToCart = (product: CartProduct) => {
-    setProducts((prev) => [...prev, product]);
+    const productExistToCart = products.some(
+      (cartProduct) => cartProduct.id === product.id,
+    );
+
+    if (productExistToCart) {
+      setProducts((prev) =>
+        prev.map((cartProduct) => {
+          if (cartProduct.id === product.id) {
+            return {
+              ...cartProduct,
+              quantity: cartProduct.quantity + product.quantity,
+            };
+          }
+          return cartProduct;
+        }),
+      );
+    } else {
+      setProducts((prev) => [...prev, product]);
+    }
   };
 
   return (
