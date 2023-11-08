@@ -1,6 +1,7 @@
 import { CartContext } from "@/providers/cart";
 import { useContext } from "react";
 import { Separator } from "./ui/separator";
+import { Button } from "./ui/button";
 
 export default function CartSummary() {
   const { total, subtotal, totalDiscount } = useContext(CartContext);
@@ -26,6 +27,8 @@ export default function CartSummary() {
         <p>Total</p>
         <p>R$ {total.toFixed(2)}</p>
       </div>
+
+      <Button className="mt-7 font-bold uppercase">Finalizar compra</Button>
     </div>
   );
 }

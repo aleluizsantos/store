@@ -90,15 +90,17 @@ const CartProvider = ({ children }: { children: ReactNode }) => {
   };
 
   const subtotal = useMemo(() => {
-    return products.reduce((acc, product) => {
-      return acc + Number(product.basePrice) * product.quantity;
-    }, 0);
+    return products.reduce(
+      (acc, product) => acc + Number(product.basePrice) * product.quantity,
+      0,
+    );
   }, [products]);
 
   const total = useMemo(() => {
-    return products.reduce((acc, product) => {
-      return acc + Number(product.totalPrice) * product.quantity;
-    }, 0);
+    return products.reduce(
+      (acc, product) => acc + Number(product.totalPrice) * product.quantity,
+      0,
+    );
   }, [products]);
 
   const totalDiscount = subtotal - total;
